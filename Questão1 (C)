@@ -1,18 +1,22 @@
-/*Faça uma narração/fluxo que leia um valor em real e a cotação do dólar. 
-Em seguida, imprima o valor correspondente em dólares.*/
 #include <stdio.h>
 
-int main(){
-    float valor;
-    float cotacao;
-    
-    printf("Bem vindo ao conversor de dólar!\n");
-    printf("Digite o valor da em reais que deseja converter: ");
-    scanf("%f", &valor);
-    printf("Agora digite a cotação do dólar: ");
-    scanf("%f", &cotacao);
-     float valor_convertido = valor*cotacao;
-    printf("Valor convertido: %.2f", valor_convertido);
-    
-return 0;
+int main() {
+    // Declaração das variáveis
+    float valor_em_reais, cotacao_dolar, valor_em_dolares;
+
+    // Passo 1: Solicitar o valor em reais
+    printf("Digite o valor em reais (BRL): ");
+    scanf("%f", &valor_em_reais);
+
+    // Passo 2: Solicitar a cotação do dólar
+    printf("Digite a cotação do dólar (USD): ");
+    scanf("%f", &cotacao_dolar);
+
+    // Passo 3: Calcular o valor em dólares
+    valor_em_dolares = valor_em_reais / cotacao_dolar;
+
+    // Passo 4: Exibir o resultado
+    printf("O valor correspondente em dólares é: %.2f USD\n", valor_em_dolares);
+
+    return 0; // Fim do programa
 }
