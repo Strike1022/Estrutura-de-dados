@@ -1,6 +1,9 @@
 #include <stdio.h>
 
 int main() {
+  
+  printf("Bem vindo ao conversor de dólar!\n");
+  
     // Declaração das variáveis
     float valor_em_reais, cotacao_dolar, valor_em_dolares;
 
