@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+// Notas dos alunos
+struct Aluno {
+    int matricula;
+    float AP1, AP2, AP3; // Notas das atividades práticas
+    float NP;            // Nota da prova
+    float NF;            // Nota final
+    char status[15];     // Status de aprovação
+};
+
+int main() {
+    //Array de 10 alunos
+    struct Aluno alunos[10];
+
+    //Le os dados de cada aluno
+    for (int i = 0; i < 10; i++) {
+        printf("\nCadastro do aluno %d:\n", i + 1);
+
+        // Solicita a matrícula
+        printf("Matrícula: ");
+        scanf("%d", &alunos[i].matricula);
+
+        // Solicita as notas das atividades práticas (AP1, AP2, AP3)
+        printf("Nota AP1: ");
+        scanf("%f", &alunos[i].AP1);
+        printf("Nota AP2: ");
+        scanf("%f", &alunos[i].AP2);
+        printf("Nota AP3: ");
+        scanf("%f", &alunos[i].AP3);
+
+        // Solicita a nota da prova (NP)
+        printf("Nota NP: ");
+        scanf("%f", &alunos[i].NP);
+
+        // Calcula a nota final (NF)
+        float media_AP = (alunos[i].AP1 + alunos[i].AP2 + alunos[i].AP3) / 3;
+        alunos[i].NF = (media_AP * 0.3) + (alunos[i].NP * 0.7);
+
+        // Define o status de aprovação
+        if (alunos[i].NF >= 6.0) {
+            printf(alunos[i].status, "Aprovado");
+        } else {
+            printf(alunos[i].status, "Reprovado");
+        }
+    }
+
+    // Exibe os resultados de todos os alunos
+    printf("\nResultados dos alunos:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("\nAluno %d:\n", i + 1);
+        printf("Matrícula: %d\n", alunos[i].matricula);
+        printf("AP1: %.2f, AP2: %.2f, AP3: %.2f\n", alunos[i].AP1, alunos[i].AP2, alunos[i].AP3);
+        printf("NP: %.2f\n", alunos[i].NP);
+        printf("Nota Final (NF): %.2f\n", alunos[i].NF);
+        printf("Status: %s\n", alunos[i].status);
+    }
+
+    return 0; // Fim do programa
+}
